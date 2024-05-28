@@ -1,0 +1,22 @@
+
+aws s3 sync . s3://bucket_name --delete
+
+aws s3 sync: This is the AWS CLI command used to synchronize files between a 
+local directory and an S3 bucket (or vice versa).
+
+.: This specifies the source directory, which in this case is the 
+current directory (denoted by the dot).
+
+s3://bucket_name: This specifies the destination, which is an S3 bucket 
+named bucket_name. The s3:// prefix indicates that the destination is an S3 bucket.
+
+--delete: This option ensures that any files in the destination (the S3 bucket)
+that are not present in the source (the local directory) are deleted.
+This makes the contents of the S3 bucket match exactly with the local directory.
+
+
+================================================================================
+
+"s3:PutObject": Allows the principal to upload objects to the bucket.
+"s3:GetObject": Allows the principal to retrieve objects from the bucket.
+"s3:ListBucket": Allows the principal to list the objects in the bucket.
