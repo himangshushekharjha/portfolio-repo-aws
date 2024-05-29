@@ -36,28 +36,3 @@ resource "aws_s3_bucket_acl" "example" {
   bucket = aws_s3_bucket.terraform-bucket.id
   acl    = "public-read"
 }
-
-resource "aws_s3_bucket_policy" "allow_access_from_another_account" {
-  bucket = aws_s3_bucket.terraform-bucket.id
-  policy = data.aws_iam_policy_document.allow_access_from_another_account.json
-}
-
-data "aws_iam_policy_document" "allow_access_from_another_account" {
-  statement {
-    principals {
-      type        = "AWS"
-      identifiers = ["*"]
-    }
-
-    actions = [
-      "s3:GetObject",
-      "s3:ListBucket",
-      "S3:PutObject"
-    ]
-
-    resources = [
-      aws_s3_bucket.terraform-bucket.arn,
-      "${aws_s3_bucket.terraform-bucket.arn}/*",
-    ]
-  }
-}

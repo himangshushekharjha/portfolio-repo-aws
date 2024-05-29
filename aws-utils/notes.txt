@@ -1,4 +1,15 @@
+resources
 
+1) resource "aws_s3_bucket"
+2) resource "aws_s3_bucket_ownership_controls"
+3) resource "aws_s3_bucket_public_access_block" (BucketOwnerPreferred role)
+4) resource aws_s3_bucket_acl (public read)
+==========================================
+Build and deploy
+5) Add bucket policy resource "aws_s3_bucket_policy"
+
+
+============================================================================
 aws s3 sync . s3://bucket_name --delete
 
 aws s3 sync: This is the AWS CLI command used to synchronize files between a 
